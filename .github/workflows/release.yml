@@ -54,6 +54,6 @@ jobs:
     with:
       formula: kitshn
       tag: ${{ needs.release.outputs.tag }}
-      repository: Yarden-zamir/kitshn
+      repository: Yarden-zamir/kitshn-1
     secrets:
       token: ${{ secrets.TOKEN }}

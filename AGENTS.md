@@ -13,7 +13,7 @@
 - Focus one test file or case: `uv run pytest tests/test_resolve.py -k workflow_dispatch`.
 - Build package artifacts: `uv build`; `dist/` is generated.
 - Local CLI smokes that might touch deployment state should set `KITSHN_ROOT` to a temp directory; otherwise roots default to `/deployments`, `/params`, `/persistent`, and `/logs`.
-- Local users may install the CLI with Homebrew from `Yarden-zamir/homebrew-tap` or run `uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn ...`; remote CI/VPS commands always use hosted `uvx`, not a persistent VPS `kitshn` install.
+- Local users may install the CLI with Homebrew from `Yarden-zamir/homebrew-tap` or run `uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn ...`; remote CI/VPS commands always use hosted `uvx`, not a persistent VPS `kitshn` install.
 - Formula behavior belongs in `.homebrew/kitshn.rb`, then the tap sync renders `Formula/kitshn.rb`.
 
 ## Implementation Contracts

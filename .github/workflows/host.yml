@@ -35,7 +35,7 @@ jobs:
         env:
           KITSHN_VPS_HOST: ${{ vars.KITSHN_VPS_HOST }}
           KITSHN_SSH_KEY: ${{ secrets.KITSHN_SSH_KEY }}
-        run: uvx --from "git+https://github.com/Yarden-zamir/kitshn.git@${GITHUB_SHA}" kitshn ci-preflight
+        run: uvx --from "git+https://github.com/Yarden-zamir/kitshn-1.git@${GITHUB_SHA}" kitshn ci-preflight
 
       - name: Write the Caddy environment
         env:
@@ -51,7 +51,7 @@ jobs:
           KITSHN_SSH_KEY: ${{ secrets.KITSHN_SSH_KEY }}
           KITSHN_SSH_KNOWN_HOSTS: ${{ vars.KITSHN_SSH_KNOWN_HOSTS }}
         run: >-
-          uvx --from "git+https://github.com/Yarden-zamir/kitshn.git@${GITHUB_SHA}" kitshn ci-bootstrap
+          uvx --from "git+https://github.com/Yarden-zamir/kitshn-1.git@${GITHUB_SHA}" kitshn ci-bootstrap
           --kitshn-ref "$GITHUB_SHA"
           --caddy-module github.com/caddy-dns/cloudflare@v0.2.4
           --acme-email dev@yarden-zamir.com

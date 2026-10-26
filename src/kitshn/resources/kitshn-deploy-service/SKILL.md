@@ -18,14 +18,14 @@ Run `kitshn self-check` before anything else. It compares `kitshn --version` wit
 GitHub release and exits non-zero with the upgrade command when the CLI is old. Docs and this
 skill describe the latest release; an old CLI silently lacks commands such as `try` and `track`.
 Upgrade with `brew upgrade kitshn`, `uv tool upgrade kitshn`, or
-`uvx --refresh --from git+https://github.com/Yarden-zamir/kitshn.git kitshn --version`.
+`uvx --refresh --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn --version`.
 
 ## Invoking The CLI
 - Type `kitshn` only on the laptop. VPS-only commands (`diagnose`, `status`, `logs`, `compose`,
   `params`) take `--vps-host <ssh-target>` and run there through a login shell.
 - Do not hand-roll `ssh host 'uvx ...'`: `uvx` lives in `~/.local/bin`, which a non-login SSH
   shell does not have on PATH. `--vps-host` handles that.
-- On CI and the VPS the hosted `uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn`
+- On CI and the VPS the hosted `uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn`
   form runs; never install a persistent VPS binary. Never bare `uvx kitshn`: it resolves an
   unrelated old PyPI package.
 

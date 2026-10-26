@@ -130,7 +130,7 @@ def test_bootstrap_remote_uses_hosted_uvx() -> None:
     command = runner.commands[0]
     assert command[0:2] == ("ssh", "prod-vps")
     assert "curl -LsSf https://astral.sh/uv/install.sh | sh" in command[2]
-    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn bootstrap" in command[2]
+    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn bootstrap" in command[2]
     assert "--install-missing --installer ubuntu" in command[2]
 
 
@@ -164,7 +164,7 @@ def test_bootstrap_remote_sends_the_caddy_env_over_stdin_and_pins_the_ref(tmp_pa
     assert "secret" not in script
     assert script.index('cat > "$caddy_env"') < script.index("curl")
     assert "trap 'rm -f \"$caddy_env\"' EXIT" in script
-    assert "git+https://github.com/Yarden-zamir/kitshn.git@abc123 kitshn bootstrap" in script
+    assert "git+https://github.com/Yarden-zamir/kitshn-1.git@abc123 kitshn bootstrap" in script
     assert "--caddy-module github.com/caddy-dns/cloudflare@v0.2.4" in script
     assert "--dns-provider 'cloudflare {env.TOKEN}'" in script
     assert "--dns-zone example.com" in script

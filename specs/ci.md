@@ -60,7 +60,7 @@ permissions:
 
 jobs:
   call:
-    uses: Yarden-zamir/kitshn/.github/workflows/deploy.yml@main
+    uses: Yarden-zamir/kitshn-1/.github/workflows/deploy.yml@main
     secrets: inherit
 ```
 
@@ -71,12 +71,12 @@ The caller workflow must grant the reusable workflow at least `contents: read` a
 `kitshn init` also writes `kitshn.md`, which explains the recipe contract and records the KitSHn source commit that generated it.
 
 ## Reusable workflow
-`Yarden-zamir/kitshn/.github/workflows/deploy.yml` is the only supported CI entry point for `kitshn deploy` and `kitshn destroy`.
+`Yarden-zamir/kitshn-1/.github/workflows/deploy.yml` is the only supported CI entry point for `kitshn deploy` and `kitshn destroy`.
 
 Workflow steps run KitSHn directly from the hosted GitHub ref. Remote VPS deploy/destroy commands also use this hosted CLI through `uvx`, with `$HOME/.local/bin` prepended for non-interactive SSH sessions. The VPS needs `uvx`, not an installed `kitshn` binary:
 
 ```bash
-uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn <ci-command>
+uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn <ci-command>
 ```
 
 The workflow YAML should stay declarative. Non-trivial logic belongs in KitSHn CLI `ci-*` commands, not inline shell, Node, or Python in the workflow file.

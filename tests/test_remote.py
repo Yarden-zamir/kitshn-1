@@ -23,7 +23,7 @@ def test_remote_ssh_args_use_a_login_shell_and_the_hosted_cli() -> None:
     # A login shell plus an explicit PATH prefix so uvx under ~/.local/bin resolves.
     assert remote.startswith("bash -lc ")
     assert "export PATH=$HOME/.local/bin:$PATH" in remote
-    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn status owner/repo" in remote
+    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn status owner/repo" in remote
     assert "--environment pr-1" in remote
 
 

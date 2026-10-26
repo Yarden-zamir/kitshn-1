@@ -1,9 +1,11 @@
 <img src="assets/kitshn-icon.svg" width="72" alt="KitSHn pot icon">
 
-# KitSHn
+# KitSHn 1
 
-[![release](https://img.shields.io/github/v/release/Yarden-zamir/kitshn?labelColor=2F3532&color=3E6B55)](https://github.com/Yarden-zamir/kitshn/releases)
-[![license](https://img.shields.io/github/license/Yarden-zamir/kitshn?labelColor=2F3532&color=3E6B55)](LICENSE)
+KitSHn 1 deploys to your own VPS. [KitSHn 2](https://github.com/Yarden-zamir/kitshn) replaces it and runs on Cloudflare. The apps that use KitSHn 1 keep working: `kitshn`'s `deploy.yml` forwards to this repo.
+
+[![release](https://img.shields.io/github/v/release/Yarden-zamir/kitshn-1?labelColor=2F3532&color=3E6B55)](https://github.com/Yarden-zamir/kitshn-1/releases)
+[![license](https://img.shields.io/github/license/Yarden-zamir/kitshn-1?labelColor=2F3532&color=3E6B55)](LICENSE)
 
 Website: [kitshn.yarden-zamir.com](https://kitshn.yarden-zamir.com), with live deployments
 and a badge builder.
@@ -46,7 +48,7 @@ brew install yarden-zamir/tap/kitshn
 Or run it without installing:
 
 ```bash
-uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn --help
+uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn --help
 ```
 
 Always use the full `uvx --from git+...` form. Bare `uvx kitshn` resolves an unrelated, old
@@ -191,10 +193,10 @@ Show in the recipe's README that it deploys with KitSHn. Neither badge needs a s
 The [badge builder on kitshn.yarden-zamir.com](https://kitshn.yarden-zamir.com/#badge-title)
 makes the live badge for a repo and shows a preview before you copy it.
 
-[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn)
+[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn-1/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn-1)
 
 ```markdown
-[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn)
+[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn-1/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn-1)
 ```
 
 The live badge shows the state of the latest `prod` deploy: success, failure, or in progress.

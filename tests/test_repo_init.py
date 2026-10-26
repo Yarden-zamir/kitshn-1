@@ -69,7 +69,7 @@ def test_init_recipe_repo_writes_required_contract_files(tmp_path: Path) -> None
     assert "permissions:\n  contents: read\n  deployments: write\n" in workflow
     kitshn_md = (tmp_path / "kitshn.md").read_text(encoding="utf-8")
     assert "This repository is a KitSHn recipe repo." in kitshn_md
-    assert "Generated from: https://github.com/Yarden-zamir/kitshn/blob/abc123/src/kitshn/repo_init.py" in kitshn_md
+    assert "Generated from: https://github.com/Yarden-zamir/kitshn-1/blob/abc123/src/kitshn/repo_init.py" in kitshn_md
     assert "KitSHn commit: `abc123`" in kitshn_md
 
 

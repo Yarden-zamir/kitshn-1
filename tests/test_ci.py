@@ -135,7 +135,7 @@ def test_deploy_over_ssh_uses_hosted_cli_on_remote(tmp_path, monkeypatch) -> Non
     assert commands[1][0] == "ssh"
     remote_command = commands[1][-1]
     assert "export PATH=$HOME/.local/bin:$PATH" in remote_command
-    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn deploy" in remote_command
+    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn deploy" in remote_command
     assert "status=$?" in remote_command
     assert "rm -f /tmp/kitshn-123-2.env" in remote_command
     assert "exit $status" in remote_command
@@ -159,7 +159,7 @@ def test_destroy_over_ssh_uses_hosted_cli_on_remote(monkeypatch) -> None:
     assert commands[0][0] == "ssh"
     remote_command = commands[0][-1]
     assert "export PATH=$HOME/.local/bin:$PATH" in remote_command
-    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn.git kitshn destroy" in remote_command
+    assert "uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn destroy" in remote_command
 
 
 def test_preflight_auth_names_missing_keys_and_the_fix(monkeypatch, capsys) -> None:

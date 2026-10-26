@@ -30,7 +30,7 @@ from .resolve import DeployEvent, ResolveInput, keep_output, parse_keep, resolve
 
 RESERVED_PARAM_NAMES = {"KITSHN_VPS_HOST", "KITSHN_SSH_KEY"}
 ENV_KEY_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
-HOSTED_CLI = ["uvx", "--from", "git+https://github.com/Yarden-zamir/kitshn.git", "kitshn"]
+HOSTED_CLI = ["uvx", "--from", "git+https://github.com/Yarden-zamir/kitshn-1.git", "kitshn"]
 REMOTE_PATH_PREFIX = "export PATH=$HOME/.local/bin:$PATH"
 RECIPE_AUTH_HINT = "run `kitshn recipe auth --vps-host <ssh-target>` in the recipe repo, then rerun this workflow"
 DEFAULT_VERIFY_TIMEOUT = 120

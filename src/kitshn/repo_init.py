@@ -10,7 +10,7 @@ from typing import Literal
 from .errors import KitshnError
 from .runner import CommandRunner
 
-KITSHN_REPO_URL = "https://github.com/Yarden-zamir/kitshn"
+KITSHN_REPO_URL = "https://github.com/Yarden-zamir/kitshn-1"
 KITSHN_SOURCE_FILE = "src/kitshn/repo_init.py"
 PLACEHOLDER_HOSTNAME = "example.com"
 DEFAULT_SITE_DIR = "site"
@@ -116,7 +116,7 @@ permissions:
 
 jobs:
   call:
-    uses: Yarden-zamir/kitshn/.github/workflows/deploy.yml@main
+    uses: Yarden-zamir/kitshn-1/.github/workflows/deploy.yml@main
     secrets: inherit
 """
 
@@ -125,7 +125,7 @@ def _kitshn_md(source_commit: str) -> str:
     origin = f"{KITSHN_REPO_URL}/blob/{source_commit}/{KITSHN_SOURCE_FILE}"
     return f"""# KitSHn Recipe
 
-[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn)
+[![deployed with kitshn](https://raw.githubusercontent.com/Yarden-zamir/kitshn-1/main/assets/badge-deployed-with-kitshn.svg)](https://github.com/Yarden-zamir/kitshn-1)
 
 This repository is a KitSHn recipe repo. KitSHn deploys recipe repos from GitHub Actions onto a VPS by resolving GitHub events to deployment environments, copying deployment params, and running the hosted KitSHn CLI through `uvx` on the VPS.
 

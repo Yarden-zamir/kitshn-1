@@ -15,6 +15,6 @@ jobs:
     with:
       formula: kitshn
       tag: ${{ github.event.release.tag_name || inputs.tag }}
-      repository: Yarden-zamir/kitshn
+      repository: Yarden-zamir/kitshn-1
     secrets:
       token: ${{ secrets.TOKEN }}

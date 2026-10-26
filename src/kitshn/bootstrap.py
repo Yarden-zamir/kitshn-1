@@ -19,7 +19,7 @@ from .installer_registry import Installer, get_installer, suggested_installers
 from .models import Roots
 from .runner import CommandRunner
 
-KITSHN_GIT_SOURCE = "git+https://github.com/Yarden-zamir/kitshn.git"
+KITSHN_GIT_SOURCE = "git+https://github.com/Yarden-zamir/kitshn-1.git"
 
 
 def expected_caddy_import(roots: Roots) -> str:

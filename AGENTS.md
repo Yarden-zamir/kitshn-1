@@ -14,7 +14,7 @@
 - Build package artifacts: `uv build`; `dist/` is generated.
 - Local CLI smokes that might touch deployment state should set `KITSHN_ROOT` to a temp directory; otherwise roots default to `/deployments`, `/params`, `/persistent`, and `/logs`.
 - Local users may install the CLI with Homebrew from `Yarden-zamir/homebrew-tap` or run `uvx --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn ...`; remote CI/VPS commands always use hosted `uvx`, not a persistent VPS `kitshn` install.
-- Formula behavior belongs in `.homebrew/kitshn.rb`, then the tap sync renders `Formula/kitshn.rb`.
+- Formula behavior belongs in `.homebrew/kitshn1.rb`, then the tap sync renders `Formula/kitshn1.rb`.
 
 ## Implementation Contracts
 - `src/kitshn/models.py` owns recipe/deployment identity and path rules: recipes must be `owner/repo`; environments are sanitized to lowercase dash names and truncated to 63 chars.

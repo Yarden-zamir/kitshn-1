@@ -17,7 +17,7 @@ does not say.
 Run `kitshn self-check` before anything else. It compares `kitshn --version` with the latest
 GitHub release and exits non-zero with the upgrade command when the CLI is old. Docs and this
 skill describe the latest release; an old CLI silently lacks commands such as `try` and `track`.
-Upgrade with `brew upgrade kitshn`, `uv tool upgrade kitshn`, or
+Upgrade with `brew upgrade kitshn1`, `uv tool upgrade kitshn`, or
 `uvx --refresh --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn --version`.
 
 ## Invoking The CLI

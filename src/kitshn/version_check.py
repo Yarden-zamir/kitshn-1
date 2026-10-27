@@ -14,7 +14,7 @@ from . import __version__
 from .errors import KitshnError
 
 GITHUB_API = "https://api.github.com/repos/Yarden-zamir/kitshn-1"
-HOMEBREW_UPGRADE = "brew upgrade kitshn"
+HOMEBREW_UPGRADE = "brew upgrade kitshn1"
 UV_TOOL_UPGRADE = "uv tool upgrade kitshn"
 UVX_REFRESH = "uvx --refresh --from git+https://github.com/Yarden-zamir/kitshn-1.git kitshn --version"
 

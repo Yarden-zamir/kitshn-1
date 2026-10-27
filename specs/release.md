@@ -11,7 +11,7 @@ Releases are automatic. `.github/workflows/release.yml` runs on every push to `m
 4. It then calls `Yarden-zamir/homebrew-tap/.github/workflows/sync-formula.yml` with the tag
    and the `TOKEN` secret. `TOKEN` must exist on the KitSHn repo as a personal access token
    with write access to `Yarden-zamir/homebrew-tap`, the same one the other publisher repos
-   use; without it the sync falls back to `github.token`, which cannot push to the tap. The sync renders `.homebrew/kitshn.rb` into the tap, updates the
+   use; without it the sync falls back to `github.token`, which cannot push to the tap. The sync renders `.homebrew/kitshn1.rb` into the tap, updates the
    tap README, validates style and drift, and opens an automerge pull request.
 
 The release is created with `GITHUB_TOKEN`, and events created by that token do not start
@@ -29,11 +29,11 @@ minor bump for new commands or changed generated files and a patch bump for fixe
 
 `kitshn self-check` compares `__version__` with the latest GitHub release, falling back to
 the highest `v*` tag when no release exists, and prints the upgrade command for the detected
-install: `brew upgrade kitshn` when the Homebrew wrapper's `KITSHN_SOURCE_REF` is set, else
+install: `brew upgrade kitshn1` when the Homebrew wrapper's `KITSHN_SOURCE_REF` is set, else
 `uv tool upgrade kitshn` and the `uvx --refresh` form. It exits non-zero when outdated.
 
 ## Formula
 
-KitSHn's Homebrew formula behavior lives in `.homebrew/kitshn.rb`. Do not hand-edit
-`Yarden-zamir/homebrew-tap/Formula/kitshn.rb` except for emergency recovery; move formula
-behavior changes back to `.homebrew/kitshn.rb`.
+KitSHn's Homebrew formula behavior lives in `.homebrew/kitshn1.rb`. Do not hand-edit
+`Yarden-zamir/homebrew-tap/Formula/kitshn1.rb` except for emergency recovery; move formula
+behavior changes back to `.homebrew/kitshn1.rb`.

@@ -42,7 +42,7 @@ service.
 On your own machine, install the CLI:
 
 ```bash
-brew install yarden-zamir/tap/kitshn
+brew install yarden-zamir/tap/kitshn1
 ```
 
 Or run it without installing:

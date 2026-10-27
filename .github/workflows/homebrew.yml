@@ -13,7 +13,7 @@ jobs:
   sync:
     uses: Yarden-zamir/homebrew-tap/.github/workflows/sync-formula.yml@main
     with:
-      formula: kitshn
+      formula: kitshn1
       tag: ${{ github.event.release.tag_name || inputs.tag }}
       repository: Yarden-zamir/kitshn-1
     secrets:

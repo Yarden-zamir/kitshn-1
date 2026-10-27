@@ -1,7 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
-class Kitshn < Formula
+class Kitshn1 < Formula
   desc "Small VPS deployment system for GitHub repos"
   homepage "https://github.com/{{REPOSITORY}}"
   url "{{URL}}"

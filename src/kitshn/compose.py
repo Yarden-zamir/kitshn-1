@@ -205,6 +205,16 @@ def compose_down(deployment: Deployment, runner: CommandRunner, *, volumes: bool
         args.append("--volumes")
     deployment.roots.deployments.mkdir(parents=True, exist_ok=True)
     runner.run(args, cwd=deployment.roots.deployments)
+    if runner.dry_run:
+        return
+    # A destroy that reports success must leave no container behind, so check by the project label.
+    left = runner.run(
+        ["docker", "ps", "--all", "--quiet", "--filter", f"label=com.docker.compose.project={deployment.compose_project}"],
+        capture=True,
+    ).stdout.split()
+    if left:
+        msg = f"compose down left {len(left)} container(s) of {deployment.compose_project}: {' '.join(left)}"
+        raise KitshnError(msg)
 
 
 def compose_service_status(deployment: Deployment, runner: CommandRunner) -> list[dict[str, Any]]:

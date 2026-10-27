@@ -13,8 +13,9 @@ from kitshn.runner import CommandResult, CommandRunner
 
 
 class Recorder(CommandRunner):
-    def __init__(self, *, volumes: str = "", images: str = "", dry_run: bool = False) -> None:
+    def __init__(self, *, volumes: str = "", images: str = "", containers: str = "", dry_run: bool = False) -> None:
         super().__init__(dry_run=dry_run)
+        self.containers = containers
         self.volumes = volumes
         self.images = images
         self.commands: list[tuple[str, ...]] = []
@@ -37,7 +38,9 @@ class Recorder(CommandRunner):
         self.commands.append(command)
         self.cwds.append(cwd)
         out = ""
-        if command[:3] == ("docker", "volume", "ls"):
+        if command[:2] == ("docker", "ps"):
+            out = self.containers
+        elif command[:3] == ("docker", "volume", "ls"):
             out = self.volumes
         elif command[:3] == ("docker", "image", "ls"):
             # The fake keeps "id<TAB>project" rows and answers a per-project label filter.
@@ -109,6 +112,18 @@ def test_destroy_keeps_only_the_listed_paths_and_removes_volumes_without_a_compo
     assert not (deployment.persistent_root / "cache").exists()
     assert not deployment.logs_root.joinpath("app").exists()
     assert not deployment.deployment_root.exists() and not deployment.params_root.exists()
+
+
+def test_destroy_fails_and_keeps_the_deployment_when_compose_down_leaves_a_container(tmp_path: Path) -> None:
+    deployment = _preview(tmp_path)
+    runner = Recorder(containers="3f2a1b\n")
+
+    with pytest.raises(KitshnError, match="left 1 container"):
+        destroy_deployment("owner/site", environment="pr-7", roots=deployment.roots, runner=runner)
+
+    check = next(command for command in runner.commands if command[:2] == ("docker", "ps"))
+    assert check[-1] == "label=com.docker.compose.project=owner-site-pr-7"
+    assert deployment.deployment_root.exists() and deployment.params_root.exists()
 
 
 def test_destroy_without_keep_keeps_both_data_folders_and_volumes(tmp_path: Path) -> None:

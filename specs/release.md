@@ -29,7 +29,7 @@ minor bump for new commands or changed generated files and a patch bump for fixe
 
 `kitshn self-check` compares `__version__` with the latest GitHub release, falling back to
 the highest `v*` tag when no release exists, and prints the upgrade command for the detected
-install: `brew upgrade kitshn` when the Homebrew wrapper's `KITSHN_SOURCE_REF` is set, else
+install: `brew upgrade kitshn1` when the Homebrew wrapper's `KITSHN_SOURCE_REF` is set, else
 `uv tool upgrade kitshn` and the `uvx --refresh` form. It exits non-zero when outdated.
 
 ## Formula

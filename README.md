@@ -61,7 +61,7 @@ kitshn self-check
 ```
 
 It compares the installed version with the latest GitHub release and prints the upgrade
-command (`brew upgrade kitshn` or `uv tool upgrade kitshn`). Every merge to `main` that bumps
+command (`brew upgrade kitshn1` or `uv tool upgrade kitshn`). Every merge to `main` that bumps
 the version in `pyproject.toml` publishes a release and updates the Homebrew tap; see
 [Release](specs/release.md).
 

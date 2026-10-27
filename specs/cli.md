@@ -87,6 +87,9 @@ Exits non-zero when any step fails.
 - `destroy` removes the deployment's containers, networks, and locally built images by Compose
   project name, from the deployments root, where no compose file is. So it works when the
   checkout is gone or its compose file changed since the last deploy. Pulled images stay cached.
+  When a container with the project label is still there after `down`, `destroy` fails and keeps
+  the route, checkout and params, so a retry still knows the deployment. On the VPS, run it
+  through the hosted CLI (`--vps-host` or `uvx`), not through an old `kitshn` on the PATH.
 - `destroy --purge` additionally deletes persistent data and file logs. `--keep <path>`, repeatable,
   deletes them except the given paths, which start with `persistent` or `logs`. `--purge` and
   `--keep` cannot be combined. `--volumes` also deletes the project's named volumes.
